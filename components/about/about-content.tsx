@@ -57,7 +57,7 @@ export function AboutContent() {
             {/* Founder Image */}
             <div className="flex justify-center">
               <Image
-                src="/images/founder-raj.PNG"
+                src="/images/founder-raj.png"
                 alt="Raj Thakur Founder"
                 width={420}
                 height={500}
