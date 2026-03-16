@@ -53,17 +53,17 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="flex items-center justify-between px-6 py-3">
+      <nav className="flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.jpeg"
             alt="Raj Marketing Media Logo"
-            width={56}
-            height={56}
+            width={160}
+            height={160}
             priority
-            className="h-14 w-14 object-contain transition-transform hover:scale-105"
+            className="h-24 w-24 object-contain transition-transform hover:scale-105"
           />
 
           <div className="hidden sm:flex flex-col">
@@ -190,6 +190,3 @@ export function Navbar() {
     </motion.header>
   )
 }
-
-
-

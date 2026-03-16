@@ -2,6 +2,7 @@
 import type { Metadata } from "next"
 import { PortfolioContent } from "@/components/portfolio/portfolio-content"
 import { CtaBanner } from "@/components/home/cta-banner"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Portfolio | Raj Marketing Media",
@@ -14,6 +15,8 @@ export default function PortfolioPage() {
     <main>
       <PortfolioContent />
       <CtaBanner />
+      <Footer />
     </main>
+    
   )
 }

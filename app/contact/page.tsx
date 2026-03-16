@@ -15,7 +15,7 @@ export default function ContactPage() {
       <main>
         <ContactContent />
       </main>
-      
+      <Footer />
     </>
   )
 }
