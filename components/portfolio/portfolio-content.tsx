@@ -1,3 +1,4 @@
+// file: components/portfolio/portfolio-content.tsx
 "use client"
 
 import { SectionHeader } from "@/components/section-header"

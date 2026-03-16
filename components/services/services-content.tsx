@@ -1,6 +1,8 @@
+// file: components/services/services-content.tsx
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import {
   Share2,
   Instagram,
@@ -11,6 +13,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react"
+
 import { SectionHeader } from "@/components/section-header"
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion-wrapper"
 
@@ -89,9 +92,25 @@ const services = [
   },
 ]
 
+const results = [
+  {
+    src: "/images/results/reach1.jpeg",
+    title: "Instagram Campaign Reach",
+  },
+  {
+    src: "/images/results/reach2.jpeg",
+    title: "Ad Campaign Performance",
+  },
+  {
+    src: "/images/results/reach3.PNG",
+    title: "Audience Growth Result",
+  },
+]
+
 export function ServicesContent() {
   return (
     <section className="relative px-6 pt-32 pb-24">
+
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-[128px]" />
@@ -99,23 +118,100 @@ export function ServicesContent() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
+
         <SectionHeader
           badge="Our Services"
           title="Digital Marketing Solutions That Deliver"
           description="We provide full-spectrum digital marketing services designed to grow your brand, increase engagement, and maximize your return on ad spend."
         />
 
+        {/* Services Poster */}
+        <FadeInUp delay={0.1}>
+          <div className="mx-auto mt-12 mb-20 max-w-3xl">
+            <Image
+              src="/images/services-poster.png"
+              alt="Raj Marketing Media Services"
+              width={900}
+              height={900}
+              className="rounded-2xl border border-white/10 shadow-xl transition hover:shadow-primary/20"
+            />
+          </div>
+        </FadeInUp>
+
+        {/* Campaign Results */}
+        <div className="mb-24">
+
+          <FadeInUp>
+            <h3 className="mb-10 text-center text-2xl font-bold text-foreground">
+              Our Campaign Results
+            </h3>
+
+            <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
+              Here are a few real campaign results we achieved for our clients.
+              Client identities are kept confidential.
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="grid gap-6 md:grid-cols-3">
+
+            {results.map((result) => (
+              <StaggerItem key={result.src}>
+
+                <div className="glass group overflow-hidden rounded-2xl border border-white/10 transition hover:glow-cyan hover:border-primary/20">
+
+                  <div className="relative overflow-hidden">
+
+                    <Image
+                      src={result.src}
+                      alt={result.title}
+                      width={600}
+                      height={600}
+                      className="w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Confidential Blur */}
+                    <div className="pointer-events-none absolute top-0 left-0 h-16 w-full backdrop-blur-sm"></div>
+
+                  </div>
+
+                  <div className="p-4 text-center">
+                    <p className="text-sm font-medium text-foreground">
+                      {result.title}
+                    </p>
+                  </div>
+
+                </div>
+
+              </StaggerItem>
+            ))}
+
+          </StaggerContainer>
+        </div>
+
+        {/* Services List */}
         <div className="flex flex-col gap-8">
+
           {services.map((service, i) => (
             <FadeInUp key={service.title} delay={i * 0.05}>
+
               <div className="glass group overflow-hidden rounded-2xl transition-all hover:glow-cyan hover:border-primary/20">
+
                 <div className="grid gap-8 p-8 md:grid-cols-5 md:p-10">
+
                   <div className="md:col-span-3">
+
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
                       <service.icon className="h-6 w-6" />
                     </div>
-                    <h3 className="mb-3 text-2xl font-bold text-foreground">{service.title}</h3>
-                    <p className="mb-6 leading-relaxed text-muted-foreground">{service.description}</p>
+
+                    <h3 className="mb-3 text-2xl font-bold text-foreground">
+                      {service.title}
+                    </h3>
+
+                    <p className="mb-6 leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+
                     <Link
                       href="/contact"
                       className="group/link inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
@@ -123,28 +219,46 @@ export function ServicesContent() {
                       Get Started
                       <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                     </Link>
+
                   </div>
+
                   <div className="md:col-span-2">
+
                     <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                       What You Get
                     </h4>
+
                     <StaggerContainer className="flex flex-col gap-3">
+
                       {service.benefits.map((benefit) => (
                         <StaggerItem key={benefit}>
+
                           <div className="flex items-start gap-3">
                             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                            <span className="text-sm text-foreground">{benefit}</span>
+
+                            <span className="text-sm text-foreground">
+                              {benefit}
+                            </span>
                           </div>
+
                         </StaggerItem>
                       ))}
+
                     </StaggerContainer>
+
                   </div>
+
                 </div>
+
               </div>
+
             </FadeInUp>
           ))}
+
         </div>
+
       </div>
+
     </section>
   )
 }

@@ -1,4 +1,4 @@
-// app/page.tsx
+// file: app/services/page.tsx
 import { Hero } from "@/components/home/hero"
 import { Stats } from "@/components/home/stats"
 import { ServicesPreview } from "@/components/home/services-preview"

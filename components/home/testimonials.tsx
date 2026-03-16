@@ -1,3 +1,4 @@
+// file: components/home/testimonials.tsx
 "use client"
 
 import { SectionHeader } from "@/components/section-header"
@@ -6,24 +7,24 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Founder, GlowUp Skincare",
+    name: "Rohit Sharma",
+    role: "Founder, UrbanStyle Clothing",
     content:
-      "NexGen transformed our Instagram presence completely. We went from 2K to 25K followers in just 4 months with real, engaged audiences.",
+      "Raj Marketing Media helped us grow our Instagram page and run targeted Meta ads. Within a few weeks we started getting genuine leads. Their team understands digital marketing really well.",
     rating: 5,
   },
   {
-    name: "David Chen",
-    role: "CEO, TechNova",
+    name: "Priya Mehta",
+    role: "Owner, Bloom Beauty Studio",
     content:
-      "Their Meta ads strategy generated 5x ROAS within the first month. The team is incredibly responsive and data-focused.",
+      "We wanted someone to handle our social media professionally and Raj Marketing Media did a great job. The content, ad campaigns, and engagement strategy helped us attract many new customers.",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
-    role: "Marketing Director, FreshBite",
+    name: "Kunal Patel",
+    role: "Director, KP Fitness Hub",
     content:
-      "Best digital marketing agency we have worked with. The Google Ads campaigns they built brought in 300% more qualified leads.",
+      "The team is very responsive and creative. They designed our marketing campaigns and managed our Instagram ads effectively. Highly recommended for businesses looking to grow online.",
     rating: 5,
   },
 ]

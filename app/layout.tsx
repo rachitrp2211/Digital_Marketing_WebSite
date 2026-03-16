@@ -1,4 +1,5 @@
 // app/layout.tsx
+
 import type { Metadata, Viewport } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
@@ -9,25 +10,34 @@ import "./globals.css"
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 })
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Raj Marketing Media | Data-Driven Digital Marketing Agency",
+  title: {
+    default: "Raj Marketing Media",
+    template: "%s | Raj Marketing Media",
+  },
+
   description:
-    "Grow your brand with data-driven digital marketing. Raj Marketing Media helps brands grow through social media marketing, Instagram growth, Meta ads, and Google ads management.",
+    "Raj Marketing Media helps brands grow with data-driven digital marketing strategies, social media management, Instagram growth, Meta Ads, and Google Ads.",
+
   keywords: [
-    "digital marketing",
+    "digital marketing agency",
     "social media management",
     "Instagram growth",
-    "Meta ads",
-    "Google ads",
-    "brand marketing",
+    "Meta ads management",
+    "Google ads marketing",
+    "digital marketing India",
   ],
+
+  metadataBase: new URL("https://rajmarketingmedia.com"),
 
   icons: {
     icon: [
@@ -55,6 +65,16 @@ export const metadata: Metadata = {
       },
     ],
   },
+
+  openGraph: {
+    title: "Raj Marketing Media",
+    description:
+      "Grow your brand with data-driven digital marketing and high-performance advertising campaigns.",
+    url: "https://rajmarketingmedia.com",
+    siteName: "Raj Marketing Media",
+    locale: "en_US",
+    type: "website",
+  },
 }
 
 export const viewport: Viewport = {
@@ -70,12 +90,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-background text-foreground">
         <Navbar />
 
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
 
-        <Footer />
+        
+
         <Analytics />
       </body>
     </html>

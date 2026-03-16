@@ -1,8 +1,10 @@
+// file: components/about/about-content.tsx
 "use client"
 
+import Image from "next/image"
 import { SectionHeader } from "@/components/section-header"
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion-wrapper"
-import { Target, Heart, Zap, Users } from "lucide-react"
+import { Target, Heart, Zap, Users, CheckCircle2 } from "lucide-react"
 
 const values = [
   {
@@ -35,16 +37,86 @@ const team = [
 export function AboutContent() {
   return (
     <section className="relative px-6 pt-32 pb-24">
+
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-primary/5 blur-[128px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl">
+
         <SectionHeader
           badge="About Us"
           title="We Are Raj Marketing Media"
           description="A modern digital marketing startup on a mission to help brands grow online through strategic social media marketing and data-driven paid advertising campaigns."
         />
+
+        {/* Founder Section */}
+        <FadeInUp>
+          <div className="glass mx-auto mb-20 grid max-w-6xl items-center gap-10 rounded-2xl p-8 md:grid-cols-2 md:p-12">
+
+            {/* Founder Image */}
+            <div className="flex justify-center">
+              <Image
+                src="/images/founder-raj.PNG"
+                alt="Raj Thakur Founder"
+                width={420}
+                height={500}
+                className="rounded-2xl shadow-xl"
+              />
+            </div>
+
+            {/* Founder Info */}
+            <div>
+              <h3 className="mb-3 text-2xl font-bold text-foreground">
+                Hi, I'm Raj
+              </h3>
+
+              <p className="mb-6 text-muted-foreground">
+                Founder of Raj Marketing Media and a performance marketing specialist focused on helping brands grow through strategic advertising and digital marketing.
+              </p>
+
+              <div className="flex flex-col gap-3">
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">
+                    Facebook & Instagram Ads Management
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">
+                    Google Search Ads Campaigns
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">
+                    Lead Generation Funnels
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">
+                    Ad Creative & Campaign Optimization
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">
+                    Landing Page Strategy & Conversion Optimization
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </FadeInUp>
 
         {/* Story */}
         <FadeInUp>
@@ -65,17 +137,28 @@ export function AboutContent() {
         {/* Values */}
         <div className="mb-20">
           <FadeInUp>
-            <h3 className="mb-8 text-center text-2xl font-bold text-foreground">Our Core Values</h3>
+            <h3 className="mb-8 text-center text-2xl font-bold text-foreground">
+              Our Core Values
+            </h3>
           </FadeInUp>
+
           <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <StaggerItem key={value.title}>
                 <div className="glass group flex flex-col items-center rounded-2xl p-6 text-center transition-all hover:glow-cyan hover:border-primary/20">
+
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
                     <value.icon className="h-6 w-6" />
                   </div>
-                  <h4 className="mb-2 text-base font-semibold text-foreground">{value.title}</h4>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{value.description}</p>
+
+                  <h4 className="mb-2 text-base font-semibold text-foreground">
+                    {value.title}
+                  </h4>
+
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {value.description}
+                  </p>
+
                 </div>
               </StaggerItem>
             ))}
@@ -85,22 +168,34 @@ export function AboutContent() {
         {/* Team */}
         <div>
           <FadeInUp>
-            <h3 className="mb-8 text-center text-2xl font-bold text-foreground">Meet the Team</h3>
+            <h3 className="mb-8 text-center text-2xl font-bold text-foreground">
+              Meet the Team
+            </h3>
           </FadeInUp>
+
           <StaggerContainer className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
               <StaggerItem key={member.name}>
                 <div className="glass group flex flex-col items-center rounded-2xl p-6 text-center transition-all hover:glow-cyan hover:border-primary/20">
+
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-[#8b5cf6]/20 text-lg font-bold text-primary">
                     {member.initial}
                   </div>
-                  <h4 className="text-base font-semibold text-foreground">{member.name}</h4>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+
+                  <h4 className="text-base font-semibold text-foreground">
+                    {member.name}
+                  </h4>
+
+                  <p className="text-sm text-muted-foreground">
+                    {member.role}
+                  </p>
+
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
+
       </div>
     </section>
   )
